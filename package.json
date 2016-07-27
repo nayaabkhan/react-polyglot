@@ -1,0 +1,42 @@
+{
+  "name": "react-polyglot",
+  "version": "0.1.0",
+  "description": "Higher order React component for using Polyglot",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build:example": "webpack example/app.js example/dist.js",
+    "build:commonjs": "babel src --out-dir lib",
+    "build": "npm run build:commonjs",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayaabkhan/react-polyglot.git"
+  },
+  "keywords": [
+    "react",
+    "airbnb",
+    "polyglot",
+    "i18n"
+  ],
+  "author": "Nayaabkhan Khan <khannayaab@gmail.com> (http://nayaabkhan.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nayaabkhan/react-polyglot/issues"
+  },
+  "homepage": "https://github.com/nayaabkhan/react-polyglot#readme",
+  "peerDependencies": {
+    "node-polyglot": "^2.0.0",
+    "react": "^0.14.0 || ^15.0.0-0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "react-dom": "^15.2.1",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.1"
+  }
+}
