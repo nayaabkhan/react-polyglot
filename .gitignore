@@ -38,3 +38,6 @@ jspm_packages
 
 # System files
 .DS_Store
+
+# Build directories
+lib
