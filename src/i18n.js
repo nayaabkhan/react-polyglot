@@ -24,10 +24,6 @@ export default class I18n extends Component {
       })
     }
  }
- 
- shouldComponentUpdate(nextProps) {
-   return this.props.locale !== nextProps.locale
- }
 
   render() {
     const children = this.props.children;
