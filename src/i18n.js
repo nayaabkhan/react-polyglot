@@ -15,6 +15,15 @@ export default class I18n extends Component {
   getChildContext() {
     return { t: this._polyglot.t.bind(this._polyglot) };
   }
+  
+  componentWillReceiveProps(newProps) {
+    if (newProps.locale !== this.props.locale) {
+      this._polyglot = new Polyglot({
+        locale: newProps.locale,
+        phrases: newProps.messages
+      })
+    }
+ }
 
   render() {
     const children = this.props.children;
