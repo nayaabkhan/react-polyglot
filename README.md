@@ -61,3 +61,4 @@ Tests and Contributing guides are in progress.
 ## Release History
 
 * 0.1.0 Initial Release
+* 0.2.0 Update the I18n component when the locale changes
