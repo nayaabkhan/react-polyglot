@@ -38,5 +38,8 @@
     "react-dom": "^15.2.1",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^1.2.0"
   }
 }
