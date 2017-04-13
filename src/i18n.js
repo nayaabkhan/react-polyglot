@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Polyglot from 'node-polyglot';
 
 // Provider root component
@@ -32,11 +33,11 @@ export default class I18n extends Component {
 }
 
 I18n.propTypes = {
-  locale: React.PropTypes.string.isRequired,
-  messages: React.PropTypes.object.isRequired,
-  children: React.PropTypes.element.isRequired,
+  locale: PropTypes.string.isRequired,
+  messages: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 I18n.childContextTypes = {
-  t: React.PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
