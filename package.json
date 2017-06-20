@@ -1,6 +1,6 @@
 {
   "name": "react-polyglot",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Higher order React component for using Polyglot",
   "main": "lib/index.js",
   "files": [
@@ -44,5 +44,8 @@
     "react-dom": "^15.2.1",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
   }
 }

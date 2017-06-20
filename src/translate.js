@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // higher order decorator for components that need `t`
 export default function translate() {
@@ -8,7 +9,7 @@ export default function translate() {
     );
 
     _translate.contextTypes = {
-      t: React.PropTypes.func.isRequired,
+      t: PropTypes.func.isRequired,
     };
 
     return _translate;
