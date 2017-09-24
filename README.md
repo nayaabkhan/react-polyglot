@@ -53,6 +53,50 @@ Greeter.propTypes = {
 export default translate()(Greeter);
 ```
 
+## How to provide context in your tests
+
+Use a simple helper to wrap your components in a context.
+
+```js
+export const wrapWithContext = function (component, context, contextTypes) {
+  const wrappedComponent = React.createClass({
+    childContextTypes: contextTypes,
+    getChildContext() {
+      return context;
+    },
+    render() {
+      return component;
+    },
+  });
+  return React.createElement(wrappedComponent);
+}
+```
+
+Then use it inside your tests.
+
+```js
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import Polyglot from 'node-polyglot';
+import Greeter from './greeter';
+import { wrapWithContext } from './helpers';
+
+const polyglot = new Polyglot({
+  locale: 'en',
+  phrases: {"hello_name": "Hello, %{name}."},
+});
+
+const greeterWithContext = wrapWithContext(
+  <Greeter name="Batsy" />,
+  { t: polyglot.t.bind(polyglot) },
+  { t: React.PropTypes.func }
+);
+
+// use greeterWithContext in your tests
+// here it is shown how to use it with renderToString
+console.log(renderToString(greeterWithContext));
+```
+
 ## Work in progress
 
 Tests and Contributing guides are in progress.
