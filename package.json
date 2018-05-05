@@ -1,8 +1,13 @@
 {
   "name": "react-polyglot",
-  "version": "0.1.0",
+  "version": "0.2.6",
   "description": "Higher order React component for using Polyglot",
   "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src",
+    "example"
+  ],
   "scripts": {
     "clean": "rimraf lib",
     "build:example": "webpack example/app.js example/dist.js",
@@ -28,9 +33,10 @@
   "homepage": "https://github.com/nayaabkhan/react-polyglot#readme",
   "peerDependencies": {
     "node-polyglot": "^2.0.0",
-    "react": "^0.14.0 || ^15.0.0-0"
+    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -40,6 +46,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^1.2.0"
+    "hoist-non-react-statics": "^1.2.0",
+    "prop-types": "^15.5.8"
   }
 }
