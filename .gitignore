@@ -41,3 +41,4 @@ jspm_packages
 
 # Build directories
 lib
+example/dist.js
