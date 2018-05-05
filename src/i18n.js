@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component, Children } from 'react'
 import PropTypes from 'prop-types'
 import Polyglot from 'node-polyglot'
 
@@ -26,7 +26,7 @@ export default class I18n extends Component {
 
   render() {
     const children = this.props.children
-    return React.Children.only(children)
+    return Children.only(children)
   }
 }
 
