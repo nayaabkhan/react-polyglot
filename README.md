@@ -1,3 +1,7 @@
+<a href="https://codeclimate.com/github/nayaabkhan/react-polyglot/maintainability"><img src="https://api.codeclimate.com/v1/badges/fd8c57e662c5f08ba77e/maintainability" /></a>
+<a href="https://codeclimate.com/github/nayaabkhan/react-polyglot/test_coverage"><img src="https://api.codeclimate.com/v1/badges/fd8c57e662c5f08ba77e/test_coverage" /></a>
+<a href="https://travis-ci.org/nayaabkhan/react-polyglot"><img src="https://travis-ci.org/nayaabkhan/react-polyglot.svg?branch=master" /></a>
+
 # React Polyglot
 Provides higher order component for using Polyglot with React
 
