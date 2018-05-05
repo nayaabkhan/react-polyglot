@@ -20,6 +20,9 @@ export default class I18n extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.locale !== this.props.locale) {
       this._polyglot.locale(newProps.locale)
+    }
+
+    if (newProps.messages !== this.props.messages) {
       this._polyglot.replace(newProps.messages)
     }
   }
