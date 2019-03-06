@@ -1,9 +1,10 @@
-import { Component, Children } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Polyglot from 'node-polyglot'
+import I18nContext from './i18n-context'
 
 // Provider root component
-export default class I18n extends Component {
+export default class I18n extends React.Component {
   constructor(props) {
     super(props)
 
@@ -11,10 +12,6 @@ export default class I18n extends Component {
       locale: props.locale,
       phrases: props.messages,
     })
-  }
-
-  getChildContext() {
-    return { t: this._polyglot.t.bind(this._polyglot) }
   }
 
   componentWillReceiveProps(newProps) {
@@ -28,8 +25,13 @@ export default class I18n extends Component {
   }
 
   render() {
-    const children = this.props.children
-    return Children.only(children)
+    const { children } = this.props
+
+    return (
+      <I18nContext.Provider value={this._polyglot.t.bind(this._polyglot)}>
+        {React.Children.only(children)}
+      </I18nContext.Provider>
+    )
   }
 }
 
@@ -37,8 +39,4 @@ I18n.propTypes = {
   locale: PropTypes.string.isRequired,
   messages: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
-}
-
-I18n.childContextTypes = {
-  t: PropTypes.func.isRequired,
 }
