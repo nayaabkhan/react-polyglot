@@ -59,6 +59,17 @@ Greeter.propTypes = {
 export default translate()(Greeter);
 ```
 
+## Live Examples
+
+### Minimal example using class components
+
+https://codesandbox.io/s/mq76ojk228
+
+### Advance example with user changeable locales
+
+https://codesandbox.io/s/px8n63v0m
+
+
 ## How to provide context in your tests
 
 Use a simple helper to wrap your components in a context.
