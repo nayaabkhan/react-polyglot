@@ -11,16 +11,21 @@ export default class I18n extends React.Component {
     this._polyglot = new Polyglot({
       locale: props.locale,
       phrases: props.messages,
+
+      allowMissing: props.allowMissing,
+      onMissingKey: props.onMissingKey,
+      interpolation: props.interpolation,
+      pluralRules: props.pluralRules,
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.locale !== this.props.locale) {
-      this._polyglot.locale(newProps.locale)
+  componentDidUpdate(prevProps) {
+    if (prevProps.locale !== this.props.locale) {
+      this._polyglot.locale(this.props.locale)
     }
 
-    if (newProps.messages !== this.props.messages) {
-      this._polyglot.replace(newProps.messages)
+    if (prevProps.messages !== this.props.messages) {
+      this._polyglot.replace(this.props.messages)
     }
   }
 
@@ -38,5 +43,24 @@ export default class I18n extends React.Component {
 I18n.propTypes = {
   locale: PropTypes.string.isRequired,
   messages: PropTypes.object.isRequired,
+
+  allowMissing: PropTypes.bool,
+  onMissingKey: PropTypes.func,
+  interpolation: PropTypes.shape({
+    suffix: PropTypes.string,
+    prefix: PropTypes.string,
+  }),
+  pluralRules: PropTypes.shape({
+    pluralTypes: PropTypes.object,
+    pluralTypeToLanguages: PropTypes.object,
+  }),
+
   children: PropTypes.element.isRequired,
+}
+
+I18n.defaultProps = {
+  allowMissing: false,
+  onMissingKey: undefined,
+  interpolation: undefined,
+  pluralRules: undefined,
 }
