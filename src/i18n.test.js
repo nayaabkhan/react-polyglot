@@ -30,12 +30,18 @@ describe('I18n Provider', () => {
 
     const instance = renderer.root.instance
 
-    instance.componentWillReceiveProps({
+    const newProps = {
       locale: 'jp',
       messages: {
-        test: 'Testo',
+        test: 'test',
       },
-    })
+    }
+
+    renderer.update(
+      <I18n {...newProps}>
+        <Child />
+      </I18n>
+    )
 
     expect(instance._polyglot.locale()).toBe('jp')
   })
