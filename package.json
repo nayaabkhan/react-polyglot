@@ -1,6 +1,6 @@
 {
   "name": "react-polyglot",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Higher order React component for using Polyglot",
   "main": "lib/index.js",
   "files": [
