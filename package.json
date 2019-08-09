@@ -8,6 +8,7 @@
     "src",
     "example"
   ],
+  "types": "src/index.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "build:example": "webpack example/app.js example/dist.js",
