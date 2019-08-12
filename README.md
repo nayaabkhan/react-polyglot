@@ -15,8 +15,8 @@ npm install --save react-polyglot
 
 ## Usage
 
-`react-polyglot` exports consists for one wrapper component called `I18n` and one decorator called
-`translate`. The decorator provides a prop `t` which is instance of `Polyglot`.
+`react-polyglot` exports consists for one wrapper component called `I18n`, one decorator called
+`translate` and one hook called `useTranslate`. The decorator provides a prop `t` which is instance of `Polyglot`.
 
 You are required to wrap your root component with `I18n` and pass on a `locale` like `en` or `fr`.
 And `messages` object containing the strings.
@@ -58,6 +58,26 @@ Greeter.propTypes = {
 
 export default translate()(Greeter);
 ```
+
+
+or with React Hooks:
+
+```js
+import React from 'react';
+import { useTranslate } from 'react-polyglot';
+
+export default const Greeter = ({ name, t }) => (
+  const t = useTranslate();
+
+  <h3>{t('hello_name', { name })}</h3>
+);
+
+Greeter.propTypes = {
+  name: React.PropTypes.string.isRequired
+};
+
+```
+
 
 ## Live Examples
 
