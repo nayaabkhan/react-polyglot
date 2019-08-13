@@ -66,13 +66,13 @@ or with React Hooks:
 import React from 'react';
 import { useTranslate } from 'react-polyglot';
 
-export default const Greeter = ({ name }) => (
+export default const Greeter = ({ name }) => {
   const t = useTranslate();
 
   return (
     <h3>{t('hello_name', { name })}</h3>
   );
-);
+};
 
 Greeter.propTypes = {
   name: React.PropTypes.string.isRequired
