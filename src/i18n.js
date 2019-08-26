@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Polyglot from 'node-polyglot'
 import I18nContext from './i18n-context'
 
 // Provider root component
-export default class I18n extends React.Component {
+export default class I18n extends Component {
   constructor(props) {
     super(props)
 
@@ -14,18 +14,13 @@ export default class I18n extends React.Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.locale !== this.props.locale) {
-      this._polyglot.locale(newProps.locale)
-    }
-
-    if (newProps.messages !== this.props.messages) {
-      this._polyglot.replace(newProps.messages)
-    }
-  }
-
   render() {
-    const { children } = this.props
+    const { forceReInit, locale, messages, children } = this.props
+
+    if (forceReInit || this._polyglot.locale() !== locale) {
+      this._polyglot.locale(locale)
+      this._polyglot.replace(messages)
+    }
 
     return (
       <I18nContext.Provider value={this._polyglot.t.bind(this._polyglot)}>
@@ -36,7 +31,12 @@ export default class I18n extends React.Component {
 }
 
 I18n.propTypes = {
+  forceReInit: PropTypes.bool,
   locale: PropTypes.string.isRequired,
   messages: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
+}
+
+I18n.defaultProps = {
+  forceReInit: false,
 }

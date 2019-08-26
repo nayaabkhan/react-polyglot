@@ -129,3 +129,4 @@ Tests and Contributing guides are in progress.
 * 0.2.4 Add a section on 'How to provide context in tests' [PR#10](https://github.com/nayaabkhan/react-polyglot/pull/10)
 * 0.2.5 Prevent creation of multiple instances on receiving new props [PR#9](https://github.com/nayaabkhan/react-polyglot/pull/9)
 * 0.2.6 Add React v16 as a peer dependency [PR#12](https://github.com/nayaabkhan/react-polyglot/pull/12)
+* 0.3.0 Removed `componentWillReceiveProps` in I18n. Change `translate` api to `translate()(Component)`.

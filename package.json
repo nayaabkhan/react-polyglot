@@ -13,7 +13,7 @@
     "clean": "rimraf lib",
     "build:example": "webpack example/app.js example/dist.js",
     "build:commonjs": "babel src --out-dir lib --ignore '*.test.js'",
-    "build": "npm run build:commonjs",
+    "build": "npm run build:commonjs && npm run build:example",
     "prepublish": "npm run clean && npm run build",
     "prettify": "prettier 'src/**/*.js' --write",
     "lint": "eslint src",
@@ -52,16 +52,16 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.3",
-    "node-polyglot": "^2.2.2",
-    "prettier": "1.12.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-test-renderer": "^16.3.2",
+    "node-polyglot": "^2.3.1",
+    "prettier": "1.18.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "^16.9.0",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^2.5.0",
-    "prop-types": "^15.5.8"
+    "hoist-non-react-statics": "^3.3.0",
+    "prop-types": "^15.7.2"
   }
 }

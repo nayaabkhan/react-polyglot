@@ -1,18 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TestRenderer from 'react-test-renderer'
 import I18n from './i18n'
 
 describe('I18n Provider', () => {
-  const createChild = () => {
-    class Child extends Component {
-      render() {
-        return <div />
-      }
-    }
-
-    return Child
-  }
-  const Child = createChild()
+  const Child = () => <div />
 
   const props = {
     locale: 'en',
@@ -28,15 +19,20 @@ describe('I18n Provider', () => {
       </I18n>
     )
 
-    const instance = renderer.root.instance
-
-    instance.componentWillReceiveProps({
+    const newProps = {
       locale: 'jp',
       messages: {
         test: 'Testo',
       },
-    })
+    }
 
+    renderer.update(
+      <I18n {...newProps}>
+        <Child />
+      </I18n>
+    )
+
+    const instance = renderer.getInstance()
     expect(instance._polyglot.locale()).toBe('jp')
   })
 })
