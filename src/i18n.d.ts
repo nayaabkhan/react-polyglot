@@ -6,7 +6,7 @@ import { ComponentType, ReactNode } from 'react'
 interface I18nProps {
   children: ReactNode
   /** Locale to use, e.g. `en` */
-  locale: number
+  locale: number | string
   /** A dictionary of translations */
   messages: object
 }
