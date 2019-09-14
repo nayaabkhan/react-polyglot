@@ -143,11 +143,4 @@ Tests and Contributing guides are in progress.
 
 ## Release History
 
-* 0.1.0 Initial Release
-* 0.2.0 Update the I18n component when the locale changes
-* 0.2.1 Add 'files' to keep in the package
-* 0.2.2 Add babel-cli for the commonjs build
-* 0.2.3 Add prop-types and start using that instead of React.PropTypes [PR#6](https://github.com/nayaabkhan/react-polyglot/pull/6)
-* 0.2.4 Add a section on 'How to provide context in tests' [PR#10](https://github.com/nayaabkhan/react-polyglot/pull/10)
-* 0.2.5 Prevent creation of multiple instances on receiving new props [PR#9](https://github.com/nayaabkhan/react-polyglot/pull/9)
-* 0.2.6 Add React v16 as a peer dependency [PR#12](https://github.com/nayaabkhan/react-polyglot/pull/12)
+Check the [Releases](https://github.com/nayaabkhan/react-polyglot/releases) tab. 
