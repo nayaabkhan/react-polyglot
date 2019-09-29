@@ -136,10 +136,6 @@ const greeterWithContext = wrapWithContext(
 console.log(renderToString(greeterWithContext));
 ```
 
-## Work in progress
-
-Tests and Contributing guides are in progress.
-
 
 ## Release History
 
