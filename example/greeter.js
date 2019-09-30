@@ -12,7 +12,7 @@ const Greeter = ({ name, nrCars, t }) => (
 Greeter.propTypes = {
   name: PropTypes.string.isRequired,
   nrCars: PropTypes.number.isRequired,
-  t: PropTypes.func
+  t: PropTypes.func,
 }
 
 export default translate()(Greeter)
