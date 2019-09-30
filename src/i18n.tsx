@@ -1,11 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode } from 'react'
 import Polyglot from 'node-polyglot'
 import I18nContext from './i18n-context'
 
+interface I18nProps {
+  children: ReactNode
+  /** Locale to use, e.g. `en` */
+  locale: string
+  /** A dictionary of translations */
+  messages: object
+}
+
 // Provider root component
-export default class I18n extends React.Component {
-  constructor(props) {
+export default class I18n extends React.Component<I18nProps> {
+  _polyglot: Polyglot
+
+  constructor(props: I18nProps) {
     super(props)
 
     this._polyglot = new Polyglot({
@@ -14,7 +23,7 @@ export default class I18n extends React.Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps: I18nProps) {
     if (newProps.locale !== this.props.locale) {
       this._polyglot.locale(newProps.locale)
     }
@@ -33,10 +42,4 @@ export default class I18n extends React.Component {
       </I18nContext.Provider>
     )
   }
-}
-
-I18n.propTypes = {
-  locale: PropTypes.string.isRequired,
-  messages: PropTypes.object.isRequired,
-  children: PropTypes.element.isRequired,
 }

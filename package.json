@@ -10,11 +10,14 @@
   ],
   "types": "src/index.d.ts",
   "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn run type-check -- --watch",
     "clean": "rimraf lib",
     "build:example": "webpack example/app.js example/dist.js",
-    "build:commonjs": "babel src --out-dir lib --ignore '*.test.js'",
-    "build": "npm run build:commonjs",
-    "prepublish": "npm run clean && npm run build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --ignore '*.test.js' --source-maps inline",
+    "build": "yarn run build:types && yarn run build:js",
+    "prepublish": "yarn run clean && yarn run build",
     "prettify": "prettier 'src/**/*.js' --write",
     "lint": "eslint src",
     "test": "jest",
@@ -41,6 +44,13 @@
     "react": "^16.0.0-0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.18",
+    "@types/react-test-renderer": "^16.9.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.11.4",
     "babel-eslint": "^8.2.3",
@@ -51,16 +61,20 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3",
+    "jest": "^24.9.0",
     "node-polyglot": "^2.2.2",
     "prettier": "1.12.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-test-renderer": "^16.3.2",
     "rimraf": "^2.5.4",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2",
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "@types/node-polyglot": "^0.4.33",
+    "@types/react": "^16.9.2",
     "hoist-non-react-statics": "^2.5.0",
     "prop-types": "^15.5.8"
   }
