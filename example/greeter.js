@@ -1,8 +1,18 @@
-import React from 'react';
-import { translate } from '../lib';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { translate } from '../lib'
 
-const Greeter = ({ name, t }) => (
-  <h3>{t('hello_name', { name })}</h3>
-);
+const Greeter = ({ name, nrCars, t }) => (
+  <div>
+    <h3>{t('hello_name', { name })}</h3>
+    <p>{t('num_cars', { smart_count: nrCars })}</p>
+  </div>
+)
 
-export default translate()(Greeter);
+Greeter.propTypes = {
+  name: PropTypes.string.isRequired,
+  nrCars: PropTypes.number.isRequired,
+  t: PropTypes.func,
+}
+
+export default translate()(Greeter)

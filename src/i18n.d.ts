@@ -5,6 +5,8 @@ import { ComponentType, ReactNode } from 'react'
 
 interface I18nProps {
   children: ReactNode
+  /** Reinitializes polyglot on every parent render. Useful when changing messages, but not locale */
+  forceReInit: boolean
   /** Locale to use, e.g. `en` */
   locale: number
   /** A dictionary of translations */

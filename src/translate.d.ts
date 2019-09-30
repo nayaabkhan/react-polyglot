@@ -17,7 +17,7 @@ export interface TranslateProps {
 }
 
 /** Wrap your components with `translate` to get a prop `t` passed in. */
-declare const translate = () => <T extends object>(
+declare const translate = <T extends object>(
   Component: ComponentType<T>
 ) => ComponentType<T & TranslateProps>(Component)
 
