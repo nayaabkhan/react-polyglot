@@ -19,13 +19,13 @@ export default class I18n extends React.Component {
     })
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.locale !== this.props.locale) {
-      this._polyglot.locale(this.props.locale)
+  componentWillReceiveProps(newProps) {
+    if (newProps.locale !== this.props.locale) {
+      this._polyglot.locale(newProps.locale)
     }
 
-    if (prevProps.messages !== this.props.messages) {
-      this._polyglot.replace(this.props.messages)
+    if (newProps.messages !== this.props.messages) {
+      this._polyglot.replace(newProps.messages)
     }
   }
 
