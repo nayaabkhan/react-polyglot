@@ -16,8 +16,14 @@ export interface TranslateProps {
   t: t
 }
 
+interface TranslateOptions {
+    forwardRef?: boolean;
+}
+
 /** Wrap your components with `translate` to get a prop `t` passed in. */
-declare const translate = () => <T extends object>(
+declare const translate = (
+    translateOptions?: TranslateOptions
+) => <T extends object>(
   Component: ComponentType<T>
 ) => ComponentType<T & TranslateProps>(Component)
 
