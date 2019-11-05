@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TestRenderer from 'react-test-renderer'
 import I18n from './i18n'
+import I18nContext from './i18n-context'
 
 describe('I18n Provider', () => {
   const createChild = () => {
@@ -14,21 +15,33 @@ describe('I18n Provider', () => {
   }
   const Child = createChild()
 
-  const props = {
-    locale: 'en',
-    messages: {
-      test: 'test',
-    },
+  function getPolyglotFromRenderer(renderer) {
+    const instance = renderer.root
+    const children = instance.children
+    const firstChild = children[0]
+    const firstChildValueProps = firstChild.props.value
+    const polyglot = firstChildValueProps._polyglot
+
+    return polyglot
   }
 
   it('should update instance on receiving new props', () => {
+    const props = {
+      locale: 'en',
+      messages: {
+        test: 'test',
+      },
+    }
+
     const renderer = TestRenderer.create(
       <I18n {...props}>
-        <Child />
+        <I18nContext.Consumer>
+          {value => {
+            return <Child value={value} />
+          }}
+        </I18nContext.Consumer>
       </I18n>
     )
-
-    const instance = renderer.root.instance
 
     const newProps = {
       locale: 'jp',
@@ -39,10 +52,16 @@ describe('I18n Provider', () => {
 
     renderer.update(
       <I18n {...newProps}>
-        <Child />
+        <I18nContext.Consumer>
+          {value => {
+            return <Child value={value} />
+          }}
+        </I18nContext.Consumer>
       </I18n>
     )
 
-    expect(instance._polyglot.locale()).toBe('jp')
+    const polyglot = getPolyglotFromRenderer(renderer)
+
+    expect(polyglot.locale()).toBe('jp')
   })
 })

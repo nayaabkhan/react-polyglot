@@ -38,30 +38,31 @@
   "homepage": "https://github.com/nayaabkhan/react-polyglot#readme",
   "peerDependencies": {
     "node-polyglot": "^2.0.0",
-    "react": "^16.0.0-0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.11.4",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^6.2.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.11.1",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "jest": "^24.9.0",
     "node-polyglot": "^2.2.2",
-    "prettier": "1.12.1",
+    "prettier": "^1.18.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-test-renderer": "^16.3.2",
     "rimraf": "^2.5.4",
-    "webpack": "^1.13.1"
+    "webpack": "^4.41.2"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^2.5.0",
+    "hoist-non-react-statics": "^3.3.0",
     "prop-types": "^15.5.8"
   }
 }
