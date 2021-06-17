@@ -17,7 +17,7 @@
     "prepublish": "npm run clean && npm run build",
     "prettify": "prettier 'src/**/*.js' --write",
     "lint": "eslint src",
-    "test": "jest",
+    "test": "jest --ci --coverage",
     "coverage": "jest --coverage"
   },
   "repository": {
