@@ -59,11 +59,22 @@ jobs:
 
       - name: Run Tests
         run: yarn test
+      
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lcov-report
+          path: coverage/lcov.info
      
   sonarcloud:
     name: SonarCloud
+    needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Download the Coverage Report
+        uses: actions/download-artifact@v2
+        with:
+          name: lcov-report
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
