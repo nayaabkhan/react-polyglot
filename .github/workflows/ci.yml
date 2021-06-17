@@ -75,6 +75,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: lcov-report
+          path: coverage/lcov.info
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
