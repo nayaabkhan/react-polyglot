@@ -28,11 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-       - name: Install Dependencies
-         run: yarn --frozen-lockfile
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
 
-       - name: Run Linters
-         run: yarn lint
+      - name: Run Linters
+        run: yarn lint
 
   test:
     name: Test
@@ -54,11 +54,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-       - name: Install Dependencies
-         run: yarn --frozen-lockfile
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
 
-       - name: Run Linters
-         run: yarn lint
+      - name: Run Linters
+        run: yarn lint
      
   sonarcloud:
     name: SonarCloud
