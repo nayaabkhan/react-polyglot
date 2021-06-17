@@ -65,6 +65,11 @@ jobs:
         with:
           name: lcov-report
           path: coverage/lcov.info
+      
+      - name: Send Coverage Report to Codacy
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov.info
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
      
   sonarcloud:
     name: SonarCloud
