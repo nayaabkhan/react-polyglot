@@ -60,32 +60,38 @@ jobs:
       - name: Run Tests
         run: yarn test
       
-      - name: Upload Coverage Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lcov-report
-          path: coverage/lcov.info
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+#       - name: Upload Coverage Report
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: lcov-report
+#           path: coverage/lcov.info
       
       - name: Send Coverage Report to Codacy
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov.info
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
      
-  sonarcloud:
-    name: SonarCloud
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download the Coverage Report
-        uses: actions/download-artifact@v2
-        with:
-          name: lcov-report
-          path: coverage/lcov.info
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#   sonarcloud:
+#     name: SonarCloud
+#     needs: test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Download the Coverage Report
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: lcov-report
+#           path: coverage/lcov.info
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
